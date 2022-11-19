@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="./../../../css/bootstrap.css">venganzaaaa -->
     <link rel="stylesheet" href="<?php echo $config['url'];?>css/bootstrap.css">
-    <title>Buscar caracoles</title>
+    <title>Buscar caracoles gigantes</title>
 </head>
 <body>
     <div id="panelBuscar" class="card border border-primary">
