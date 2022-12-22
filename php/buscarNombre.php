@@ -1,14 +1,14 @@
 <?php
-require_once('../../../../php/conexion.php');
-$offset = ((int)($_POST['bpagina']) - 1) * 10;
-$result=$mysqli->query("SELECT * FROM usuarios WHERE
- nombre_usuario like '%".$_POST['bnombre_usuario']."%' LIMIT 10
- OFFSET ".$offset );
+$mysqli = new mysqli('localhost','root', '','clase39');
+//$offset = ((int)($_POST['bpagina']) - 1) * 10;
+$sql="SELECT * FROM usuarios WHERE
+nombre_usuario like '%".$_POST['bnombre_usuario']."%' LIMIT 10";
+$result=$mysqli->query($sql);
 $tabla="";
-while($row=$result->fetch_array(MYSQLI_ASSOC)){
+while($row=$result->fetch_assoc()){
  $tabla = $tabla."<tr>"
- ."<td>".$row["cod_usuario"]."</td>"
- ."<td>".$row["nombre_usuario"]."</td>"
+ ."<td>".$row["codigo"]."</td>"
+ ."<td>".$row["nombre"]."</td>"
  ."</tr>";
 }
 if($tabla==""){
