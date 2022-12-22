@@ -1,6 +1,6 @@
 <?php
     return [
-        'url' => 'http://localhost/leccion37/'
+        'url' => 'http://localhost/leccion37/IDT/IDT'
     ];
     // vamos retornar un array y ese lo vamos a guardar en una variable
     // y desde esa varible usamos las posicion 'url'
