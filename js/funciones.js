@@ -1,8 +1,9 @@
+console.log($);
 function agregarUsuario() {
     var formData = $("#formPrograma").serialize();
     console.log("password", $("#password").val());
-    console.log("repertir_password", $("#repertir_password").val());
-    if ($("#password").val() == $("#repertir_password").val()) {
+    console.log("repetir_password", $("#repetir_password").val());
+    if ($("#password").val() == $("#repetir_password").val()) {
         $.ajax({
             url: "php/agregar.php",
             type: "post",
@@ -34,14 +35,14 @@ function buscarNombreUsuario() {
         type: 'POST',
         url: 'php/buscarNombre.php',
         data: datosFormulario,
-        dataType: 'json',
+        dataType: 'html',
         beforeSend: function (objeto) {
-            $("#mensajes").html("Enviando datos al servidor...");
+            //$("#mensajes").html("Enviando datos al servidor...");
             $("#contenidoBusqueda").css("display", "none");
         },
-        success: function (json) {
-            $("#mensajes").html(json.mensaje);
-            $("#contenidoBusqueda").html(json.contenido);
+        success: function (respuesta) {
+            //$("#mensajes").html(respuesta.mensaje);
+            $("#contenidoBusqueda").html(respuesta);
             $("#contenidoBusqueda").fadeIn("slow");
             $("tbody tr").on("click", function () {
                 var id = $(this).find("td:first").html();
@@ -144,3 +145,42 @@ function limpiarCampos() {
     $("#celular").val("");
     $("#mensaje").val("");
 }
+
+function loguearUsuario() {
+    var formData = $("#login-form").serialize();
+    console.log("username", $("#username").val());
+    console.log("password", $("#password").val());
+        $.ajax({
+            url: "php/ValidarAcceso.php",
+            type: "post",
+            dataType: "json",
+            data: formData,
+            success: function (res) {
+                if(res.acceso == "true"){
+                    $("#respuesta").html("Hola, iniciando sesion!");
+                    setTimeout(
+                        function(){
+                            window.location.href = "http://localhost/leccion37/IDT/IDT/perfil.php";
+                        }, 2500
+
+                        
+                    )
+                }else{
+                    $("#respuesta").html("Credenciales invalidas");
+                }
+                
+            },
+            error: function (e) {
+                $("#respuesta").html("No se puede loguear con los datos, Error:" + e.status);
+            }
+        });
+    }
+    
+   
+
+console.log("login-form", $("#login-form"));
+
+$("#loguearUsuario").on("click", function (evento) {
+    evento.preventDefault();
+    loguearUsuario();
+})

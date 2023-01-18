@@ -8,5 +8,4 @@
     '$codigo','$password')";
 
     $mysqli -> query($sql);
-
     echo "Guardado correctamente.";

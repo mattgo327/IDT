@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="" defer></script>
+    <link rel="stylesheet" href="css/estiloslogin.css">
+    <script src="js/jquery-3.3.1.min.js" defer></script>
+    <script src="js/funciones.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -21,26 +23,35 @@
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form style="width: 23rem;">
+          <form style="width: 23rem;" id="login-form">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
             <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example18">Usuario</label>
-              <input type="email" id="form2Example18" class="form-control form-control-lg" /> 
+              <label class="form-label" for="username">Usuario</label>
+              <input type="email" id="username"  name="username" class="form-control form-control-lg" /> 
             </div>
 
             <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example28">Contraseña</label>
-              <input type="password" id="form2Example28" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Contraseña</label>
+              <input type="password" id="password" name="password" class="form-control form-control-lg" />
             </div>
 
             <div class="pt-1 mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="button">Login</button>
+              <button class="btn btn-info btn-lg btn-block" type="submit" 
+              name="submit" value="submit"
+              id="loguearUsuario">Enviar</button>
             </div>
 
             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
             <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+
+            <div id="mensajes">
+
+            </div>
+            <div id="respuesta">
+              
+            </div>
 
           </form>
 
