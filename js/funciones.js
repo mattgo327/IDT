@@ -184,3 +184,27 @@ $("#loguearUsuario").on("click", function (evento) {
     evento.preventDefault();
     loguearUsuario();
 })
+
+function agregarProducto() {
+    var formData = $("#formPrograma").serialize();
+        $.ajax({
+            url: "frm/archivos/productos/php/agregar.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            success: function (res) {
+                $("#mensajes").html(res);
+            },
+            error: function (e) {
+                $("#mensajes").html("No se puede agregar los datos, Error:" + e.status);
+            }
+        });
+    }
+    
+
+console.log("formPrograma", $("#formPrograma"));
+
+$("#agregarProducto").on("click", function (evento) {
+    evento.preventDefault();
+    agregarProducto();
+})

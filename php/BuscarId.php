@@ -1,5 +1,5 @@
 <?php # Conectamos con MySQL 
-require_once('../../../../php/conexion.php'); 
+require_once('conexion.php'); 
 $id = $_POST['cod_usuario'];            
  $sql="select * from usuarios where cod_usuario=".$id;             
  $ret=$mysqli->query($sql);             
