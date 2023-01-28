@@ -1,3 +1,11 @@
+<?php
+    include "conexion.php";
+    $idUsuario = $_GET["usuario"];
+    $sql = "SELECT * from usuarios where id = '$idUsuario'";
+    $resp =$conexion->query($sql);
+    $fila = $resp->fetch_assoc();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +14,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- CSS Only-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
-    crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+    crossorigin="anonymous" defer></script>
     <script src="js/jquery-3.3.1.min.js" defer></script>
-    <script src="js/funciones.js" defer></script>
-    </svg>
+   <script src="js/funciones.js" defer></script>
     <style>
         .quitar-puntos {
             list-style: none;
@@ -46,9 +53,9 @@
     </style>
 </head>
 <body>
-    <form action="" id="formPrograma" enctype="multipart/form-data">
+    <form action="" id="formPrograma">
         <div class="card-header bg-primary text-white text-r mb-3 pr-10">
-            Formulario de Productos
+            Carga de usuario <?php echo "$idUsuario"; print_r($fila); ?>
         </div>
         <div class="form-group">
             <div class="row">
@@ -66,12 +73,12 @@
                                 id="codigo"
                                 class="form-control"
                                 placeholder="Codigo"
+                                value="<?php echo $fila["id"]; ?>"
                             />
                         </div>
                         <div class="col-2 col-sm-2">
                             <button class="btn btn-primary">
-                                <i class="bi bi-search">
-                                </i>
+                                <i class="bi bi-search"></i>
                             </button>
                         </div>
                     </div>
@@ -81,7 +88,27 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-2 text-r">
-                    <label for="nombre" class="text-capitalize">Nombre</label>
+                    <label for="login" class="text-capitalize">login</label>
+                </div>
+
+                <div class="col-sm-3">
+                    <input
+                        type="text"
+                        name="login"
+                        id="login"
+                        class="form-control"
+                        placeholder="Login"
+                        value="<?php echo $fila["login"]; ?>"
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 text-r">
+                    <label for="nombre" class="text-capitalize"
+                        >nombre</label
+                    >
                 </div>
 
                 <div class="col-sm-3">
@@ -91,6 +118,7 @@
                         id="nombre"
                         class="form-control"
                         placeholder="Nombre"
+                        value="<?php echo $fila["nombre"]; ?>"
                     />
                 </div>
             </div>
@@ -98,61 +126,40 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-2 text-r">
-                    <label for="precio" class="text-capitalize"
-                        >Precio</label
+                    <label for="password" class="text-capitalize"
+                        >password</label
                     >
                 </div>
 
                 <div class="col-sm-3">
                     <input
-                        type="text"
-                        name="precio"
-                        id="precio"
+                        type="password"
+                        name="password"
+                        id="password"
                         class="form-control"
-                        placeholder="Precio"
+                        placeholder="Password"
                     />
                 </div>
             </div>
         </div>
         <div class="form-group">
-        <div class="row">
-                    <div class="col-sm-2 text-r">
-                        <label for="descripcion">
-                            Descripcion
-                        </label>
-                    </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-12 ">
-                                <textarea class="form-control" name="descripcion" id="descripcion" rows="6" placeholder="Descripcion"></textarea>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-sm-2 text-r">
+                    <label for="repetir_password" class="text-capitalize"
+                        >Repetir password</label
+                    >
                 </div>
-        </div>
-        <br>
-        <div class="form-group">
-        <div class="row">
-                    <div class="col-sm-2 text-r">
-                        <label for="Imagen">
-                            Imagen
-                        </label>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <div class="row ">
-                            <div class="col-12  card bg-primary  mb-3 text-white ptb">
-                                
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <input class="btn btn-primary" type="file" name="imagen" id="imagen">
-                                        </div>
-                                        <div class="col-sm-6 text-center">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col-sm-3">
+                    <input
+                        type="password"
+                        name="repetir_password"
+                        id="repetir_password"
+                        class="form-control"
+                        placeholder="Repetir Password"
+                    />
+                </div>
+            </div>
         </div>
 
         <div class="card-footer bb-azul">
@@ -160,8 +167,8 @@
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                     <div class="text-center">
-                        <button class="btn btn-primary" id="agregarProducto">Agregar</button>
-                        <button class="btn btn-primary" disabled>
+                        <button class="btn btn-primary" id="agregarUsuario" disabled>Agregar</button>
+                        <button class="btn btn-primary" id="modificarUsuario">
                             Modificar
                         </button>
                         <button class="btn btn-primary" disabled>

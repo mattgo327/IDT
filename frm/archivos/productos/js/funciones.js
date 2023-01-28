@@ -99,7 +99,7 @@ function eliminarUsuario() {
 }
 function modificarUsuario() {
     var datosFormulario = $("#formPrograma").serialize();
-    if ($("#pass_usuario").val() == $("#rep_pass").val()) {
+    if ($("#password").val() == $("#repetir_password").val()) {
         $.ajax({
             type: 'POST',
             url: 'php/modificar.php',
@@ -134,3 +134,33 @@ function limpiarCampos() {
     $("#celular").val("");
     $("#mensaje").val("");
 }
+
+function agregarProducto() {
+    var formData = $("#formPrograma").serialize();
+    var fd = new FormData(document.querySelector("#formPrograma"));
+    var imagen = $("#imagen")[0].files;
+    //fd.append('test', 'hola')
+    //fd.append('file', imagen[0])
+        $.ajax({
+            url: "php/agregar.php",
+            type: "post",
+            //dataType: "html",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                $("#mensajes").html(res);
+            },
+            error: function (e) {
+                $("#mensajes").html("No se puede agregar los datos, Error:" + e.status);
+            }
+        });
+    }
+    
+
+console.log("formPrograma", $("#formPrograma"));
+
+$("#agregarProducto").on("click", function (evento) {
+    evento.preventDefault();
+    agregarProducto();
+})

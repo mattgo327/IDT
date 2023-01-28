@@ -1,0 +1,35 @@
+{"post":{"codigo":"5451","nombre":"test","precio":"10000","descripcion":"test"},"archivos":[]}
+{"post":{"codigo":"1784","nombre":"tes","precio":"5488","descripcion":"sdfgds"},"archivos":[]}
+
+
+{"post":[],"archivos":[]}{"post":[],"archivos":[]}
+{"post":[],"archivos":[]}
+{"post":{"test":"hola"},"archivos":{"file":{"name":"Imagen1.png","full_path":"Imagen1.png","type":"image\/png","tmp_name":"C:\\xampp\\tmp\\php833D.tmp","error":0,"size":125555}}}
+{"post":{"codigo":"","nombre":"","precio":"","descripcion":"","test":"hola","file":"undefined"},"archivos":{"imagen":{"name":"","full_path":"","type":"","tmp_name":"","error":4,"size":0}}}
+{"post":
+    {"codigo":"96385213",
+    "nombre":"mati",
+    "precio":"4500000",
+    "descripcion":"asdfsd",
+    "test":"hola"},
+    
+    "archivos":
+    {"imagen":
+        {"name":"Imagen2.jpg",
+        "full_path":"Imagen2.jpg",
+        "type":"image\/jpeg",
+        "tmp_name":"C:\\xampp\\tmp\\phpCAE4.tmp","error":0,
+        "size":172233},
+        
+    "file":
+        {"name":"Imagen2.jpg",
+        "full_path":"Imagen2.jpg",
+       "type":"image\/jpeg","tmp_name":"C:\\xampp\\tmp\\phpCAE5.tmp",
+        "error":0,"size":172233}}}
+{"post":{"codigo":"89765454","nombre":"pepe","precio":"5645454545",
+"descripcion":"545dfs4g5s4d5f4"},
+
+
+"archivos":{
+    "imagen":{"name":"Sin t\u00edtulo.png","full_path":"Sin t\u00edtulo.png",
+    "type":"image\/png","tmp_name":"C:\\xampp\\tmp\\phpE87E.tmp","error":0,"size":434972}}}

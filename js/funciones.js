@@ -110,7 +110,7 @@ function eliminarUsuario() {
 }
 function modificarUsuario() {
     var datosFormulario = $("#formPrograma").serialize();
-    if ($("#pass_usuario").val() == $("#rep_pass").val()) {
+    if ($("#password").val() == $("#repetir_password").val()) {
         $.ajax({
             type: 'POST',
             url: 'php/modificar.php',
